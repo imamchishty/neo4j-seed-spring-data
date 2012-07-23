@@ -55,13 +55,23 @@ public class SpringDataExampleTest
     }
 
     /**
-     * Should find user using name index.
+     * Should find user using username index.
      */
     @Test
-    @Ignore("ignored until the index __types__ issue is resolved")
-    public void shouldFindUserUsingNameIndex()
+    public void shouldFindUserUsingUsernameIndex()
     {
-        UserEntity user = userRepo.findByPropertyValue("name", "imam");
+        UserEntity user = userRepo.findByUsername("imam");
+        validateUserEntity(user);
+    }
+
+    /**
+     * Should find user using property value lookup.
+     */
+    @Test
+    @Ignore("failing test, could be due to index issue.")
+    public void shouldFindUserUsingPropertyValueLookup()
+    {
+        UserEntity user = userRepo.findByPropertyValue("username", "imam");
         validateUserEntity(user);
     }
 
@@ -69,10 +79,9 @@ public class SpringDataExampleTest
      * Should find user using public id.
      */
     @Test
-    @Ignore("see above")
     public void shouldFindUserUsingPublicId()
     {
-        UserEntity user = userRepo.findUserByPublicId("1");
+        UserEntity user = userRepo.findByPublicId("1");
         validateUserEntity(user);
     }
 
@@ -85,7 +94,7 @@ public class SpringDataExampleTest
         assertNotNull(user);
 
         // name should be set to imam
-        assertEquals("imam", user.getName());
+        assertEquals("imam", user.getUsername());
 
         // public id was set to 1
         assertEquals("1", user.getPublicId());

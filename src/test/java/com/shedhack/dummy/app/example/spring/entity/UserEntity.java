@@ -37,11 +37,11 @@ public class UserEntity
     private AddressEntity address;
 
     /** The name. */
-    @Indexed()
-    private String name;
+    @Indexed(indexName = "username")
+    private String username;
 
     /** The public id. */
-    @Indexed()
+    @Indexed(indexName = "publicId")
     private String publicId;
 
     /**
@@ -91,9 +91,9 @@ public class UserEntity
      * 
      * @return the name
      */
-    public String getName()
+    public String getUsername()
     {
-        return name;
+        return username;
     }
 
     /**
@@ -102,9 +102,9 @@ public class UserEntity
      * @param name
      *            the new name
      */
-    public void setName(String name)
+    public void setUsername(String username)
     {
-        this.name = name;
+        this.username = username;
     }
 
     /**
@@ -156,8 +156,8 @@ public class UserEntity
     @Override
     public String toString()
     {
-        return "UserEntity [nodeId=" + nodeId + ", hobbies=" + hobbies + ", address=" + address + ", name=" + name + ", publicId="
-                + publicId + "]";
+        return "UserEntity [nodeId=" + nodeId + ", hobbies=" + hobbies + ", address=" + address + ", username=" + username
+                + ", publicId=" + publicId + "]";
     }
 
 }

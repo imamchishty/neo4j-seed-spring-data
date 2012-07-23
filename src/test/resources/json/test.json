@@ -1,10 +1,23 @@
 {
 	"entities": 
 		[
-			{ "rowId": 1,  "type" : "com.shedhack.dummy.app.example.spring.entity.UserEntity", 		"properties": {"name": "imam",  "publicId": "1" }, "indexes" :{"name": "imam", "publicId" : "1"} },
-			{ "rowId": 2,  "type" : "com.shedhack.dummy.app.example.spring.entity.AddressEntity", 	"properties": {"postcode": "b99"} },
-			{ "rowId": 3,  "type" : "com.shedhack.dummy.app.example.spring.entity.HobbyEntity", 	"properties": {"name": "football"} },
-			{ "rowId": 4,  "type" : "com.shedhack.dummy.app.example.spring.entity.HobbyEntity", 	"properties": {"name": "tennis"} }
+			{ 
+				"rowId": 1,  "type" : "com.shedhack.dummy.app.example.spring.entity.UserEntity", 		
+				"properties": {"username": "imam",  "publicId": "1" }, 
+				"indexes" :{"username": "imam", "publicId" : "1"} 
+			},
+			{ 
+				"rowId": 2,  "type" : "com.shedhack.dummy.app.example.spring.entity.AddressEntity", 	
+				"properties": {"postcode": "b99"} 
+			},
+			{ 
+				"rowId": 3,  "type" : "com.shedhack.dummy.app.example.spring.entity.HobbyEntity", 	
+				"properties": {"name": "football"} 
+			},
+			{ 
+				"rowId": 4,  "type" : "com.shedhack.dummy.app.example.spring.entity.HobbyEntity", 	
+				"properties": {"name": "tennis"} 
+			}
 		],
 		
 	"relationships":

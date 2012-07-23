@@ -15,5 +15,14 @@ public interface UserRepository extends GraphRepository<UserEntity>, NamedIndexR
      *            the public id
      * @return the user entity
      */
-    UserEntity findUserByPublicId(String publicId);
+    UserEntity findByPublicId(String publicId);
+
+    /**
+     * Find by name.
+     * 
+     * @param name
+     *            the name
+     * @return the user
+     */
+    UserEntity findByUsername(String name);
 }
