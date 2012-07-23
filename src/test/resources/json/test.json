@@ -1,0 +1,16 @@
+{
+	"entities": 
+		[
+			{ "rowId": 1,  "type" : "com.shedhack.dummy.app.example.spring.entity.UserEntity", 		"properties": {"name": "imam",  "publicId": "1" }, "indexes" :{"name": "imam", "publicId" : "1"} },
+			{ "rowId": 2,  "type" : "com.shedhack.dummy.app.example.spring.entity.AddressEntity", 	"properties": {"postcode": "b99"} },
+			{ "rowId": 3,  "type" : "com.shedhack.dummy.app.example.spring.entity.HobbyEntity", 	"properties": {"name": "football"} },
+			{ "rowId": 4,  "type" : "com.shedhack.dummy.app.example.spring.entity.HobbyEntity", 	"properties": {"name": "tennis"} }
+		],
+		
+	"relationships":
+		[
+			{ "fromRowId": 1, "toRowId": 2, "direction": "BOTH", "type": "ADDRESS", "properties": {"message": "home"} },
+			{ "fromRowId": 1, "toRowId": 3, "direction": "BOTH", "type": "HOBBY" },
+			{ "fromRowId": 1, "toRowId": 4, "direction": "BOTH", "type": "HOBBY" }
+		]
+}
