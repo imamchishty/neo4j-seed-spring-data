@@ -1,11 +1,4 @@
-/*
- * @(#)DBUnit.java 1.0.0 2011/12/05 Copyright (c) 1994-2011 NCR Corporation
- * Company Address (if required) All rights reserved. This software is the
- * confidential and proprietary information of NCR Corporation
- * ("Confidential Information"). You shall not disclose such Confidential
- * Information and shall use it only in accordance with the terms of the license
- * agreement you entered into with NCR.
- */
+
 package com.shedhack.testing.neo4j.annotation;
 
 import java.lang.annotation.ElementType;
