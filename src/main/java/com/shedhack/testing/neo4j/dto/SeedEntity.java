@@ -1,6 +1,8 @@
 package com.shedhack.testing.neo4j.dto;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -22,7 +24,7 @@ public class SeedEntity
     private Map<String, Object> properties = new HashMap<String, Object>();
 
     /** The indexes. */
-    private Map<String, String> indexes = new HashMap<String, String>();
+    private List<SeedIndex> indexes = new ArrayList<SeedIndex>();
 
     /**
      * Gets the row id.
@@ -67,22 +69,18 @@ public class SeedEntity
     }
 
     /**
-     * Gets the indexes.
-     * 
      * @return the indexes
      */
-    public Map<String, String> getIndexes()
+    public List<SeedIndex> getIndexes()
     {
         return indexes;
     }
 
     /**
-     * Sets the indexes.
-     * 
      * @param indexes
-     *            the indexes
+     *            the indexes to set
      */
-    public void setIndexes(Map<String, String> indexes)
+    public void setIndexes(List<SeedIndex> indexes)
     {
         this.indexes = indexes;
     }
@@ -109,6 +107,10 @@ public class SeedEntity
         this.type = type;
     }
 
+    /*
+     * (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString()
     {

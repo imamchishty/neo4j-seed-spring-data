@@ -1,6 +1,7 @@
 package com.shedhack.dummy.app.example.spring.entity;
 
 import org.springframework.data.neo4j.annotation.GraphId;
+import org.springframework.data.neo4j.annotation.Indexed;
 import org.springframework.data.neo4j.annotation.NodeEntity;
 
 /**
@@ -19,6 +20,10 @@ public class HobbyEntity
 
     /** The name. */
     private String name;
+
+    /** The description. */
+    @Indexed(indexName = "hobbyDescriptionIndex")
+    private String description;
 
     /** The node id. */
     @GraphId
@@ -66,6 +71,27 @@ public class HobbyEntity
         this.nodeId = nodeId;
     }
 
+    /**
+     * Gets the description.
+     * 
+     * @return the description
+     */
+    public String getDescription()
+    {
+        return description;
+    }
+
+    /**
+     * Sets the description.
+     * 
+     * @param description
+     *            the new description
+     */
+    public void setDescription(String description)
+    {
+        this.description = description;
+    }
+
     /*
      * (non-Javadoc)
      * @see java.lang.Object#toString()
@@ -73,7 +99,7 @@ public class HobbyEntity
     @Override
     public String toString()
     {
-        return "HobbyEntity [name=" + name + ", nodeId=" + nodeId + "]";
+        return "HobbyEntity [name=" + name + ", description=" + description + ", nodeId=" + nodeId + "]";
     }
 
 }

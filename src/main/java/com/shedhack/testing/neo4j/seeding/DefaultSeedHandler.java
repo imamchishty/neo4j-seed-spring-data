@@ -18,6 +18,7 @@ import org.slf4j.LoggerFactory;
 
 import com.shedhack.testing.neo4j.dto.SeedData;
 import com.shedhack.testing.neo4j.dto.SeedEntity;
+import com.shedhack.testing.neo4j.dto.SeedIndex;
 import com.shedhack.testing.neo4j.dto.SeedRelationship;
 
 /**
@@ -179,13 +180,13 @@ public class DefaultSeedHandler implements SeedHandler
      * @param indexes
      *            the indexes
      */
-    private void createIndexes(Node node, Map<String, String> indexes)
+    private void createIndexes(Node node, List<SeedIndex> seedIndexes)
     {
-        for (String indexKey : indexes.keySet())
+        for (SeedIndex seedIndex : seedIndexes)
         {
             IndexManager indexManager = graphDb.index();
-            Index<Node> index = indexManager.forNodes(indexKey, LuceneIndexImplementation.FULLTEXT_CONFIG);
-            index.add(node, indexKey, indexes.get(indexKey));
+            Index<Node> index = indexManager.forNodes(seedIndex.getIndexName(), LuceneIndexImplementation.FULLTEXT_CONFIG);
+            index.add(node, seedIndex.getFieldName(), seedIndex.getIndexValue());
         }
     }
 

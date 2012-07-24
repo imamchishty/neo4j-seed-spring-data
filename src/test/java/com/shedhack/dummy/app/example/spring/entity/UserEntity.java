@@ -37,12 +37,16 @@ public class UserEntity
     private AddressEntity address;
 
     /** The name. */
-    @Indexed(indexName = "username")
+    @Indexed(indexName = "usernameIndex")
     private String username;
 
     /** The public id. */
-    @Indexed(indexName = "publicId")
+    @Indexed(indexName = "publicIdIndex")
     private String publicId;
+
+    /** The description. */
+    @Indexed(indexName = "descriptionIndex")
+    private String description;
 
     /**
      * Gets the hobbies.
@@ -99,8 +103,8 @@ public class UserEntity
     /**
      * Sets the name.
      * 
-     * @param name
-     *            the new name
+     * @param username
+     *            the new username
      */
     public void setUsername(String username)
     {
@@ -149,6 +153,27 @@ public class UserEntity
         this.nodeId = nodeId;
     }
 
+    /**
+     * Gets the description.
+     * 
+     * @return the description
+     */
+    public String getDescription()
+    {
+        return description;
+    }
+
+    /**
+     * Sets the description.
+     * 
+     * @param description
+     *            the new description
+     */
+    public void setDescription(String description)
+    {
+        this.description = description;
+    }
+
     /*
      * (non-Javadoc)
      * @see java.lang.Object#toString()
@@ -157,7 +182,7 @@ public class UserEntity
     public String toString()
     {
         return "UserEntity [nodeId=" + nodeId + ", hobbies=" + hobbies + ", address=" + address + ", username=" + username
-                + ", publicId=" + publicId + "]";
+                + ", publicId=" + publicId + ", description=" + description + "]";
     }
 
 }

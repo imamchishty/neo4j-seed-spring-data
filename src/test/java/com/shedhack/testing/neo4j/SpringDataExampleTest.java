@@ -6,7 +6,8 @@ package com.shedhack.testing.neo4j;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import org.junit.Ignore;
+import java.util.Set;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.shedhack.dummy.app.example.spring.entity.HobbyEntity;
 import com.shedhack.dummy.app.example.spring.entity.UserEntity;
+import com.shedhack.dummy.app.example.spring.repo.HobbyRepository;
 import com.shedhack.dummy.app.example.spring.repo.UserRepository;
 import com.shedhack.testing.neo4j.annotation.Neo4jTest;
 import com.shedhack.testing.neo4j.spring.listener.Neo4jSeedTestExecutionListener;
@@ -41,6 +43,9 @@ public class SpringDataExampleTest
 {
     @Autowired
     UserRepository userRepo;
+
+    @Autowired
+    HobbyRepository hobbyRepo;
 
     /**
      * Should find user entity with relationships.
@@ -65,17 +70,6 @@ public class SpringDataExampleTest
     }
 
     /**
-     * Should find user using property value lookup.
-     */
-    @Test
-    @Ignore("failing test, could be due to index issue.")
-    public void shouldFindUserUsingPropertyValueLookup()
-    {
-        UserEntity user = userRepo.findByPropertyValue("username", "imam");
-        validateUserEntity(user);
-    }
-
-    /**
      * Should find user using public id.
      */
     @Test
@@ -83,6 +77,27 @@ public class SpringDataExampleTest
     {
         UserEntity user = userRepo.findByPublicId("1");
         validateUserEntity(user);
+    }
+
+    /**
+     * Should find user by description.
+     */
+    @Test
+    public void shouldFindUserByDescription()
+    {
+        Set<UserEntity> users = userRepo.findByDescription("something");
+        assertNotNull(users);
+        assertEquals(1, users.size());
+    }
+
+    /**
+     * Should find hobbies by description.
+     */
+    @Test
+    public void shouldFindHobbiesByDescription()
+    {
+        Set<HobbyEntity> hobbies = hobbyRepo.findByDescription("something");
+        assertEquals(2, hobbies.size());
     }
 
     /**
@@ -101,6 +116,9 @@ public class SpringDataExampleTest
 
         // should have an address
         assertNotNull(user.getAddress());
+
+        // should have a description set to something
+        assertEquals("something", user.getDescription());
 
         // address should have the postcode set (please note for the purposes of
         // testing this property was set to Fetch

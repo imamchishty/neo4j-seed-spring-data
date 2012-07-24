@@ -3,8 +3,13 @@
 		[
 			{ 
 				"rowId": 1,  "type" : "com.shedhack.dummy.app.example.spring.entity.UserEntity", 		
-				"properties": {"username": "imam",  "publicId": "1" }, 
-				"indexes" :{"username": "imam", "publicId" : "1"} 
+				"properties": {"username": "imam",  "publicId": "1", "description" : "something" }, 
+				"indexes" :
+					[
+						{"indexName": "usernameIndex", "fieldName" : "username", "indexValue" : "imam" }, 
+						{"indexName": "publicIdIndex", "fieldName" : "publicId", "indexValue" : "1" }, 
+						{"indexName": "descriptionIndex", "fieldName" : "description", "indexValue" : "something" } 
+					]
 			},
 			{ 
 				"rowId": 2,  "type" : "com.shedhack.dummy.app.example.spring.entity.AddressEntity", 	
@@ -12,11 +17,19 @@
 			},
 			{ 
 				"rowId": 3,  "type" : "com.shedhack.dummy.app.example.spring.entity.HobbyEntity", 	
-				"properties": {"name": "football"} 
+				"properties": {"name": "football", "description" : "something"},
+				"indexes" :
+					[ 
+						{"indexName": "hobbyDescriptionIndex", "fieldName" : "description", "indexValue" : "something" } 
+					]
 			},
 			{ 
 				"rowId": 4,  "type" : "com.shedhack.dummy.app.example.spring.entity.HobbyEntity", 	
-				"properties": {"name": "tennis"} 
+				"properties": {"name": "tennis", "description" : "something"},
+				"indexes" :
+					[ 
+						{"indexName": "hobbyDescriptionIndex", "fieldName" : "description", "indexValue" : "something" } 
+					] 
 			}
 		],
 		

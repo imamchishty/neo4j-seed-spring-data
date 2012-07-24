@@ -1,5 +1,7 @@
 package com.shedhack.dummy.app.example.spring.repo;
 
+import java.util.Set;
+
 import org.springframework.data.neo4j.repository.GraphRepository;
 import org.springframework.data.neo4j.repository.NamedIndexRepository;
 
@@ -25,4 +27,13 @@ public interface UserRepository extends GraphRepository<UserEntity>, NamedIndexR
      * @return the user
      */
     UserEntity findByUsername(String name);
+
+    /**
+     * Find by description.
+     * 
+     * @param description
+     *            the description
+     * @return the user entity
+     */
+    Set<UserEntity> findByDescription(String description);
 }
