@@ -42,8 +42,8 @@ public class JsonToSeedDataMapperTest
         // check that the correct number of indexes for the entities
         assertEquals(3, data.getEntities().get(0).getIndexes().size());
         assertEquals(0, data.getEntities().get(1).getIndexes().size());
-        assertEquals(0, data.getEntities().get(2).getIndexes().size());
-        assertEquals(0, data.getEntities().get(3).getIndexes().size());
+        assertEquals(1, data.getEntities().get(2).getIndexes().size());
+        assertEquals(1, data.getEntities().get(3).getIndexes().size());
 
         // check that the correct number of properties for the entities
         assertEquals(3, data.getEntities().get(0).getProperties().size());
