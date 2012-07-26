@@ -185,7 +185,7 @@ public class DefaultSeedHandler implements SeedHandler
         for (SeedIndex seedIndex : seedIndexes)
         {
             IndexManager indexManager = graphDb.index();
-            Index<Node> index = indexManager.forNodes(seedIndex.getIndexName(), LuceneIndexImplementation.FULLTEXT_CONFIG);
+            Index<Node> index = indexManager.forNodes(seedIndex.getIndexName());
             index.add(node, seedIndex.getFieldName(), seedIndex.getIndexValue());
         }
     }
