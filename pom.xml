@@ -18,7 +18,7 @@
 		<neo4j.version>1.6.1</neo4j.version>
 		<logback.version>1.0.1</logback.version>
 		<spring.version>3.1.1.RELEASE</spring.version>
-		<spring-data-neo4j.version>2.0.1.RELEASE</spring-data-neo4j.version>
+		<spring-data-neo4j.version>2.1.0.M1</spring-data-neo4j.version>
 	</properties>
 
 	<licenses>
@@ -42,6 +42,17 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
+
+		<!-- For developing against latest Spring milestones -->
+		<repository>
+			<id>org.springframework.maven.milestone</id>
+			<name>Spring Maven Milestone Repository</name>
+			<url>http://maven.springframework.org/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		
 	</repositories>
 
 	<dependencies>
@@ -82,7 +93,7 @@
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-neo4j-rest</artifactId>
-			<version>2.0.1.RELEASE</version>
+			<version>${spring-data-neo4j.version}</version>
 		</dependency>
 
 		<!-- Neo4j Libraries -->
