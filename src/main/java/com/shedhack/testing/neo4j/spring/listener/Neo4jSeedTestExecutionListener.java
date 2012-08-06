@@ -69,7 +69,6 @@ public class Neo4jSeedTestExecutionListener extends AbstractTestExecutionListene
     {
         logger.info("Tearing down the test data, ids " + nodeIds);
         seedHandler.removeNodes(nodeIds);
-        graphDb.shutdown();
     }
 
     /**
